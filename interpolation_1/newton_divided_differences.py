@@ -2,6 +2,7 @@
 #input : X array of nodes
 #      : Y array of value of those nodes
 #ouput : C vector that contains coefficients of Newton interpolation polynomial
+#      : D table of divided difference
 
 import numpy as np
 
