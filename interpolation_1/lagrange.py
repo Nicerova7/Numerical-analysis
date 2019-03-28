@@ -18,7 +18,7 @@ def lagran(X,Y):
             if (k != j):
                 V = np.convolve(V,np.poly(X[j]))/(X[k]-X[j])
         L[k,:] = V
-
+        
     C = np.dot(Y,L)
     return C,L
 
@@ -29,7 +29,6 @@ def main():
     #Y
     Y = [-14.1014, -0.9315, 0, 0.9315, 14.1014]
     R = lagran(X,Y)
-    p = len(R[0])
     print("C: \n",R[0])
     print("L: \n",R[1])
     
