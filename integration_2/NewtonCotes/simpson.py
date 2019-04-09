@@ -13,7 +13,7 @@ def simpson(f,a,b,n):
 
 def func(x):
 
-    z = x**2 #
+    z = (1+x**2)**(-1) #
     return z
 
-print(simpson(func,1,2,100))
+print(simpson(func,-1,1,20))
