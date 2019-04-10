@@ -1,4 +1,4 @@
 # Numerical-analysis
-Differents algorithms on python about numerical analysis - UNI
+Differents algorithms on python or R about numerical analysis - UNI
 
 Professor: Irla Mantilla
