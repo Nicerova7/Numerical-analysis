@@ -9,7 +9,7 @@ def simpson(f,a,b,n):
     C[1:n-1:3] = 3
     C[2:n:3] = 3
     C[3:n-2:3] = 2
-    z = (3*h/8)*np.dot(f(x),C)
+    z = sum((3*h/8)*np.dot(f(x),C)) # sum to make sure if we have funct const
     return z
 
 def func(x):
