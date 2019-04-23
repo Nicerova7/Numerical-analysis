@@ -8,12 +8,12 @@ def simpson(f,a,b,n):
     C = np.ones([n+1,1])
     C[1:n:2] = 4
     C[2:n-1:2] = 2
-    z = (h/3)*np.dot(f(x),C)
+    z = sum((h/3)*np.dot(f(x),C)) # sum to make sure if we have function const
     return z
 
 def func(x):
-
+   # z = -1
     z = (1+x**2)**(-1) #
     return z
 
-print(simpson(func,-1,1,20))
+print(simpson(func,0,1,20))
