@@ -16,3 +16,4 @@ def func(x):
     return z
     
 print(trapeze(func,1,2,100)) 
+# Error = -(f^(2)*(b-a)^3)/(12*n^2)
