@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Taylor series and int.
 def taylor(x):
 
     t = x*1.0

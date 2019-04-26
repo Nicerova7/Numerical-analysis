@@ -17,3 +17,4 @@ def func(x):
     return z
 
 print(simpson(func,0,1,20))
+#Error = (f^(4)*h^4*(b-a))/180

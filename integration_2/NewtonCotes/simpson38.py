@@ -18,3 +18,4 @@ def func(x):
     return z
 
 print(simpson(func,1,2,100))
+# Error = (f^(4)*h^5*n)/80
