@@ -1,4 +1,9 @@
 #Simpson rule
+#input : f function to integrate
+#a     : limit low
+#b     : limit up
+#n     : num of partitions
+
 import numpy as np
 
 def simpson(f,a,b,n):
