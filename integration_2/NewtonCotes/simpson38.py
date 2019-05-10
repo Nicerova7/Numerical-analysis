@@ -1,4 +1,10 @@
 #Simpson 3/8 rule
+#Best method of Newton-Cotes
+#Input : f = function
+#      : a,b = limits of integration
+#      : n = partitions
+#Output : Result integral 
+
 import numpy as np
 
 def simpson(f,a,b,n):
