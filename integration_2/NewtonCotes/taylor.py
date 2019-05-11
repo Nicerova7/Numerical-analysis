@@ -1,4 +1,8 @@
 #Taylor integration
+#function taylor :
+#INPUT: Point when we evaluated the taylor's form.
+#OUTPUT: Int with this form.
+
 import numpy as np
 import matplotlib.pyplot as plt
 
