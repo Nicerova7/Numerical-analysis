@@ -1,4 +1,7 @@
 # Trapezoidal rule
+# Input  : Function f, limits a to b , and n partitions
+# Output : Integral
+
 import numpy as np
 
 def trapeze(f,a,b,n):
