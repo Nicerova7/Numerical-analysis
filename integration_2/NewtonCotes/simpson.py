@@ -1,8 +1,6 @@
 #Simpson rule
-#input : f function to integrate
-#a     : limit low
-#b     : limit up
-#n     : num of partitions
+#Input : f function to integrate ,a: limit low, b: limit up ,n: num of partitions
+#Output: integral
 
 import numpy as np
 
