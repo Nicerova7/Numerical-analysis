@@ -22,9 +22,9 @@ def euler(f,x0,y0,xf,n):
         y[i] = h*(f(x[i-1],y[i-1]))+y[i-1]
 
     plt.plot(x,y,'o')
-    plt.xlabel("valores x")
-    plt.ylabel("valores y")
-    plt.title("Solucion aprox")
+    plt.xlabel("X values")
+    plt.ylabel("Y values")
+    plt.title("Solution aprox")
     plt.show()
 
 def function(x,y):

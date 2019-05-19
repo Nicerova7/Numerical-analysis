@@ -23,9 +23,9 @@ def heun(f,x0,y0,xf,n):
         # y_i+1 = y_i + h/2 * (f(x_i,y_i) + f(x_i+1,y_i+h*f(x_i,y_i)))
 
     plt.plot(x,y,'o')
-    plt.xlabel("valores x")
-    plt.ylabel("valores y")
-    plt.title("Solucion aprox")
+    plt.xlabel("X values")
+    plt.ylabel("Y values")
+    plt.title("Solution aprox")
     plt.show()
 
 def function(x,y):
