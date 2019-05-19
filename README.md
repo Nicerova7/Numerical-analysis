@@ -9,4 +9,8 @@ Interpolation
 
 Integration and differentiation
 
+## Chapter 3
+
+Solve ordinary diferential equations 
+
 Professor: Irla Mantilla
