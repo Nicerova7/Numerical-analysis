@@ -1,4 +1,8 @@
-# Euler method
+# Euler modified method
+
+# Description : In this method we use the method euler with a midpoint
+#               to calculate the f(x,y), with a midpoint the error decreases.
+#               This lead to the family of Runge-Kutta methods.
 
 # INPUT: y' = f(x,y)  : diferential equation
 #        y(x(0)) = y0 : initial condition
@@ -19,7 +23,7 @@ def euler(f,x0,y0,xf,n):
 
     y[0] = y0
     for i in range(1,n):
-        y[i] = h*(f(x[i-1],y[i-1]))+y[i-1]
+        y[i] = h*(f(x[i-1]+h/2,y[i-1]+f(x[i-1],y[i-1])*h/2))+y[i-1]
 
     plt.plot(x,y,'o')
     plt.xlabel("X values")
@@ -35,8 +39,7 @@ def main():
     x0 = 0
     y0 = 1
     xf = 10
-    n  = 101
+    n  = 50
     euler(function,x0,y0,xf,n,)
 
 main()
-    
