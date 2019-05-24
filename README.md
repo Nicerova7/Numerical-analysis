@@ -11,6 +11,10 @@ Integration and differentiation
 
 ## Chapter 3
 
-Solve ordinary diferential equations 
+Solve ordinary diferential equations
+
+## Chapter 4
+
+Solve partial differential equations
 
 Professor: Irla Mantilla
