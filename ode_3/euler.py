@@ -11,7 +11,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def euler(f,x0,y0,xf,n):
+def euler(x0,y0,xf,n):
 
     h = (xf-x0)/(n-1)
     x = np.linspace(x0,xf,n)
@@ -19,7 +19,7 @@ def euler(f,x0,y0,xf,n):
 
     y[0] = y0
     for i in range(1,n):
-        y[i] = h*(f(x[i-1],y[i-1]))+y[i-1]
+        y[i] = h*(function(x[i-1],y[i-1]))+y[i-1]
 
     plt.plot(x,y,'o')
     plt.xlabel("X values")
@@ -36,7 +36,7 @@ def main():
     y0 = 1
     xf = 10
     n  = 101
-    euler(function,x0,y0,xf,n,)
+    euler(x0,y0,xf,n,)
 
 main()
     
