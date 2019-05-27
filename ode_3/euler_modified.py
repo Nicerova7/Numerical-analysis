@@ -15,7 +15,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def euler(f,x0,y0,xf,n):
+def euler(x0,y0,xf,n):
 
     h = (xf-x0)/(n-1)
     x = np.linspace(x0,xf,n)
@@ -31,8 +31,8 @@ def euler(f,x0,y0,xf,n):
     plt.title("Solution aprox")
     plt.show()
 
-def function(x,y):
-    return -y+np.sin(x) # modified function to use
+def f(x,y):
+    return -y+np.sin(x) # modify function to use
     
 def main():
 
@@ -40,6 +40,6 @@ def main():
     y0 = 1
     xf = 10
     n  = 50
-    euler(function,x0,y0,xf,n,)
+    euler(x0,y0,xf,n,)
 
 main()
