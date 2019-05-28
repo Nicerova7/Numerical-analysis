@@ -11,7 +11,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def heun(f,x0,y0,xf,n):
+def heun(x0,y0,xf,n):
 
     h = (xf-x0)/(n-1)
     x = np.linspace(x0,xf,n)
@@ -28,7 +28,7 @@ def heun(f,x0,y0,xf,n):
     plt.title("Solution aprox")
     plt.show()
 
-def function(x,y):
+def f(x,y):
     return -y+np.sin(x) # modified function to use
     
 def main():
@@ -37,7 +37,7 @@ def main():
     y0 = 1
     xf = 10
     n = 101
-    heun(function,x0,y0,xf,n,)
+    heun(x0,y0,xf,n,)
 
 main()
     
