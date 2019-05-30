@@ -11,7 +11,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def taylor2(f,x0,y0,xf,n):
+def taylor2(x0,y0,xf,n):
 
     h = (xf-x0)/(n-1)
     x = np.linspace(x0,xf,n)
@@ -19,7 +19,7 @@ def taylor2(f,x0,y0,xf,n):
 
     y[0] = y0
     for i in range(1,n):
-        y[i] = y[i-1] + h*f(x[i-1],y[i-1]) + (h**2)/2 * (dfx(f,x[i-1],y[i-1])+f(x[i-1],y[i-1])*dfy(f,x[i-1],y[i-1]))
+        y[i] = y[i-1] + h*f(x[i-1],y[i-1]) + (h**2)/2 * (dfx(x[i-1],y[i-1])+f(x[i-1],y[i-1])*dfy(x[i-1],y[i-1]))
 
     plt.plot(x,y,'o')
     plt.xlabel("X values")
@@ -27,14 +27,14 @@ def taylor2(f,x0,y0,xf,n):
     plt.title("Solution aprox")
     plt.show()
 
-def function(x,y):
+def f(x,y):
     return -y+np.sin(x) # modified function to use
 
-def dfx(f,x,y):
+def dfx(x,y):
     h = 0.00001
     return (f(x+h,y)-f(x,y))/h
 
-def dfy(f,x,y):
+def dfy(x,y):
     h = 0.00001
     return (f(x,y+h)-f(x,y))/h
     
@@ -44,7 +44,7 @@ def main():
     y0 = 1
     xf = 10
     n = 101
-    taylor2(function,x0,y0,xf,n,)
+    taylor2(x0,y0,xf,n,)
 
 main()
     
