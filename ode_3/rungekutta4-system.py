@@ -1,4 +1,4 @@
-# Runge Kutta 4th order equation system of two odes.
+# Runge Kutta 4th order to edo system of two equations.
 
 """
 INPUT:  dy/dx = f1(x,y,z)  : differential equation 1
@@ -57,11 +57,8 @@ def main():
     y0 = 1.0
     z0 = 0.0
     xf = 5.0
-    n  = 21  # 21 points, 20 spaces so h = 0.025
+    n  = 21  # 21 points -> 20 spaces between points.
     solveSystem(x0,y0,z0,xf,n,)
 
 main()
 
-"""
-Notice that the error in the end of the range of the X values is so big.
-"""
