@@ -1,8 +1,8 @@
 # Euler to equation system of two odes.
 
 """
-INPUT:  dy/dx = f1(x,y,z)  : diferential equation 1
-        dz/dx = f2(x,y,z)  : diferential equation 2
+INPUT:  dy/dx = f1(x,y,z)  : differential equation 1
+        dz/dx = f2(x,y,z)  : differential equation 2
         y(x(0)) = y0 : initial condition 1
         z(x(0)) = z0 : initial condition 2
         xf           : variable final which define range
