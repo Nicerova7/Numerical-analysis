@@ -1,12 +1,15 @@
 # Shooting Method
 """
-#INPUT : y'' = p(x)y' + q(x)y + r(x) ,  y(a) = alfa, y(b) = beta
+# INPUT : y'' = p(x)y' + q(x)y + r(x) ,  y(a) = alfa, y(b) = beta
 
          p(x)
          q(x)
          r(x)
          a,b
-         alfa,beta         
+         alfa,beta 
+
+# OUTPUT : approximations w1,i to y(xi)
+                          w2,i to y'(xi)  to all i = 0, ... ,N
 """
 
 import numpy as np
