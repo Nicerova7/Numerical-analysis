@@ -35,7 +35,7 @@ def shootingMethod(p,q,r,a,b,alfa,beta,n):
         w[1,i] = u[1,i] + w[1,0]*v[1,i]
         x = a+i*h
 
-    return (x,w)
+    return(x,w)
 
 def fun1(x, y, z):
 
