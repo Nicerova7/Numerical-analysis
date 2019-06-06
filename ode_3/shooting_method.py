@@ -46,6 +46,6 @@ def fun2(x, y, z):
 
 def main():
 
-    shootingMethod()
+    shootingMethod() # To use in general
     
 main()
