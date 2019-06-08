@@ -44,7 +44,7 @@ def main():
     y0 = 1
     xf = 10
     n = 101
-    taylor2(x0,y0,xf,n,)
+    taylor2(x0,y0,xf,n,) # We have 101 points -> 100 intervals
 
 main()
     
