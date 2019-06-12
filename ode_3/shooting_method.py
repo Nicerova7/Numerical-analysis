@@ -16,7 +16,7 @@ import numpy as np
 import rungekutta4mod as rk4
 import matplotlib.pyplot as plt
 
-def shootingMethod(a,b,alpha,beta,n):
+def shootingMethod(p,q,r,a,b,alpha,beta,n):
 
     # n subintervals
     
@@ -26,16 +26,16 @@ def shootingMethod(a,b,alpha,beta,n):
     x = np.linspace(a,b,n+1)
 
     #Apply Runge -  Kutta to u1,i+1  u2,i+1  v1,i+1  v2,i+1
-    u = rk4.solveSystem(fun1,fun2,a,alpha,0,b,n+1)
-    v = rk4.solveSystem(fun1,fun2,a,0,1,b,n+1)
+    u = rk4.solveSystem(fun1,fun2(p,q,r),a,alpha,0,b,n+1)
+    v = rk4.solveSystem(fun1,fun2(p,q,r),a,0,1,b,n+1)
                         
     w = np.zeros([2,n+1])
     w[0,0] = alpha
-    w[1,0] = (beta-u[0][0,n])/v[0][0,n]
+    w[1,0] = (beta-u[0,n])/v[0,n]
     
     for i in range(1,n):
-        w[0,i] = u[0][0,i] + w[1,0]*v[0][0,i]
-        w[1,i] = u[1][0,i] + w[1,0]*v[1][0,i]
+        w[0,i] = u[0,i] + w[1,0]*v[0,i]
+        w[1,i] = u[1,i] + w[1,0]*v[1,i]
 
     return(x,w)
 
@@ -56,8 +56,10 @@ v'' = p(x)u' + q(x)u + r(x)
 v'  = n  -> n(a)  = 0
 v'' = n' -> n'(a) = 1
 """
-def fun2(x, v, n):
-    return p(x)*n + q(x)*v + r(x)
+def fun2(p, q, r):
+    def fun22(x,v,n):
+        return p(x)*n + q(x)*v + r(x)
+    return fun22
 
 
 # Modify p(x) q(x) and r(x) to use.
@@ -78,10 +80,10 @@ def main():
     alpha = -2.0
     beta = 10.0
     n = 40
-    x,w = shootingMethod(a,b,alpha,beta,n) # To use in general
+    x,w = shootingMethod(p,q,r,a,b,alpha,beta,n) # To use in general
 
-    plt.plot(x,w[0],label='W_0')
-    plt.plot(x,w[1],label='W_1')
+    plt.plot(x,w[0],label='Y')
+    plt.plot(x,w[1],label='Y\'')
     plt.xlabel("X values")
     plt.ylabel("Y values")
     plt.legend()

@@ -36,4 +36,4 @@ def solveSystem(f1,f2,x0,y0,z0,xf,n):
         y[i] = y[i-1] + (k1 + 2*k2 + 2*k3 + k4)/6        
         z[i] = z[i-1] + (l1 + 2*l2 + 2*l3 + l4)/6
         
-    return np.transpose(y),np.transpose(z)
+    return np.row_stack((np.transpose(y),np.transpose(z)))
