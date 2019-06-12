@@ -1,6 +1,6 @@
 # Shooting Method
 """
-# INPUT : y'' = p(x)y' + q(x)y + r(x) ,  y(a) = alfa, y(b) = beta
+# INPUT : y'' = p(x)y' + q(x)y + r(x) ,  y(a) = alpha, y(b) = beta
 
          p(x)
          q(x)
