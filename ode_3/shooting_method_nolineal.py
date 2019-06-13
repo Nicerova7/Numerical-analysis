@@ -41,15 +41,15 @@ def shootingNoLineal(a,b,alpha,beta,n,tol,M):
         k = k+1
         TK = TK-(w[0,n]-beta)/u1
 
-    print("Numero maximo de iteraciones excedido")
-    return 0,0
+    print("Maximum number of iterations exceeded")
+    return [0],0
         
 def fun1(x,y,z):
     return z
 
 def f(x,y,z):
     # f(x,y,y')
-    return (1/8)*(32 + 2*x**3 - y*z)
+    return (1/8)*(32 + 2*x**3 - y*z)  # modify here to change function
 
 # df(x,y,y')/dy
 def dfy(x,y,z): 
@@ -77,13 +77,14 @@ def main():
     M = 33
 
     x,w = shootingNoLineal(a,b,alpha,beta,n,tol,M)
-    
-    plt.plot(x,w[0],label='Y')
-    plt.plot(x,w[1],label='Y\'')
-    plt.xlabel("X values")
-    plt.ylabel("Y values")
-    plt.legend()
-    plt.title("Shooting method to no lineal case")
-    plt.show()
+
+    if(len(x)!=1):
+        plt.plot(x,w[0],label='Y')
+        plt.plot(x,w[1],label='Y\'')
+        plt.xlabel("X values")
+        plt.ylabel("Y values")
+        plt.legend()
+        plt.title("Shooting method to no lineal case")
+        plt.show()
     
 main()
