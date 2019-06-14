@@ -90,6 +90,9 @@ def main():
     
     x = np.linspace(a,b,n+2) # add x_0 and x_n+1
     plt.plot(x,w)
+    plt.xlabel("X values")
+    plt.ylabel("Y values")
+    plt.title("Finite difference method for lineal case")
     plt.show()
 
 main()
