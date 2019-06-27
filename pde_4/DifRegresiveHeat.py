@@ -22,8 +22,9 @@ OUTPUT Wij aproximation to u(xi,tj) to all i = 1, ... , m-1 and
 
 """
 import numpy as np
+from decimal import *
 
-def DiffRegresive(l,T,alpha,m,N):
+def diffRegressive(l,T,alpha,m,N):
 
     h = l/m
     k = T/N
@@ -32,10 +33,11 @@ def DiffRegresive(l,T,alpha,m,N):
     w = np.zeros([m])
     l = np.zeros([m])
     u = np.zeros([m])
-    W = np.zeros([N,m])
-    
-    for i in range(1,m):  w[i-1] = f(i*h) # Initial values
+    W = np.zeros([m,N])
+    z = np.zeros([m])
 
+    for i in range(1,m):  w[i-1] = f(i*h) # Initial values
+ 
     # Solve a tridiagonal linear system by Crout factorization
     l[0] = 1 + 2*lambd
     u[0] = -lambd/l[0]
@@ -48,7 +50,7 @@ def DiffRegresive(l,T,alpha,m,N):
 
     for j in range(1,N+1):
         t = j*k
-        z[0] = w[0]/l[0]
+        z[0] = Decimal(w[0]/l[0])
 
         for i in range(2,m):
             z[i-1] = (w[i-1] + lambd*z[i-2])/l[i-1]
@@ -56,12 +58,25 @@ def DiffRegresive(l,T,alpha,m,N):
         w[m-2] = z[m-2]
 
         for i in range(m-2,0,-1):
-            w[i] = z[i] - u[i-1]*w[i]
+            w[i-i] = z[i-1] - u[i-1]*w[i]
+            
+        W[:,j-1] = w
+            
+    return W
 
-        W[j-1,:] = w
-        w = np.zeros([m])
-        
-def main():
+def f(x):
+    return np.sin(np.pi*x)
     
+    
+def main():
 
+    l = 1.0  # limit of x
+    T = 1.0  # limit of time
+    alpha = 1.0 # alpha coeficient
+    m = 10   # number of nodes
+    N = 100  # number of nodes
+
+    W = diffRegressive(l,T,alpha,m,N)
+    print(W[:,49])
+    
 main()

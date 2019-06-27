@@ -57,56 +57,56 @@ def finDifPoisson(a,b,c,d,m,n,tol,N):
                  w[i,m-2] + lambd*w[i-1,m-3])/mu
             if (abs(w[i-1,m-2] - z) > norm):
                 norm = abs(w[i-1,m-2] - z)
-                w[i-1,m-2] = z
+            w[i-1,m-2] = z
 
         z = (-h**2*f(x[n-2],y[m-2]) + g(b,y[m-2]) + lambd*g(x[n-2],d) +
              lambd*w[n-3,m-2] + lambd*w[n-2,m-3])/mu
 
         if(abs(w[n-2,m-2] - z) > norm):
             norm = abs(w[n-2,m-2] - z)
-            w[n-2,m-2] = z
+        w[n-2,m-2] = z
 
         for j in range(m-2,1,-1):
             z = (-h**2*f(x[0],y[j-1]) + g(a,y[j-1]) + lambd*w[0,j] +
                  lambd*w[0,j-2] + w[1,j-1])/mu
             if( abs(w[0,j-1] - z) > norm):
                 norm = abs(w[0,j-1] - z)
-                w[0,j-1] = z
+            w[0,j-1] = z
 
             for i in range(2,n-1):
                 z = (-h**2*f(x[i-1],y[j-1]) + w[i-2,j-1] + lambd*w[i-1,j] +
                     w[i,j-1] + lambd*w[i-1,j-2])/mu
                 if(abs(w[i-1,j-1] - z) > norm):
                     norm = abs(w[i-1,j-1] - z)
-                    w[i-1,j-1] = z
+                w[i-1,j-1] = z
 
             z = (-h**2*f(x[n-2],y[j-1]) + g(b,y[j-1]) + w[n-3,j-1] +
                      lambd*w[n-2,j] + lambd*w[n-2,j-2])/mu
 
             if(abs(w[n-2,j-1] - z) > norm):
                 norm = abs(w[n-2,j-1] - z)
-                w[n-2,j-1] = z
+            w[n-2,j-1] = z
 
         z = (-h**2*f(x[0],y[0]) + g(a,y[0]) + lambd*g(x[0],c) +
              lambd*w[0,1] + w[1,0])/mu
 
         if(abs(w[0,0] - z) > norm):
             norm = abs(w[0,0] - z)
-            w[0,0] = z
+        w[0,0] = z
 
         for i in range(2,n-1):
             z = (-h**2*f(x[i-1],y[0]) + lambd*g(x[i-1],c) + w[i-2,0] +
                  lambd*w[i-1,1] + w[i,1])/mu
             if(abs(w[i-1,0] - z) > norm):
                 norm = abs(w[i-1,0] - z)
-                w[i-1,0] = z
+            w[i-1,0] = z
 
         z = (-h**2*f(x[n-2],y[0]) + g(b,y[0]) + lambd*g(x[n-2],c) +
              w[n-3,0] + lambd*w[n-2,1])/mu
 
         if(abs(w[n-2,0] - z) > norm):
             norm = abs(w[n-2,0] - z)
-            w[n-2,0] = z
+        w[n-2,0] = z
                 
         if(norm <= tol):
             print(l)
@@ -138,7 +138,7 @@ def main():
     m = 5
     n = 6
     tol = 1E-10
-    N = 300
+    N = 100
 
     x,y,w = finDifPoisson(a,b,c,d,m,n,tol,N)
     print(w)
