@@ -22,7 +22,6 @@ OUTPUT Wij aproximation to u(xi,tj) to all i = 1, ... , m-1 and
 
 """
 import numpy as np
-from decimal import *
 
 def diffRegressive(l,T,alpha,m,N):
 
@@ -33,10 +32,13 @@ def diffRegressive(l,T,alpha,m,N):
     w = np.zeros([m])
     l = np.zeros([m])
     u = np.zeros([m])
-    W = np.zeros([m,N])
+    W = np.zeros([m+1,N])
     z = np.zeros([m])
 
     for i in range(1,m):  w[i-1] = f(i*h) # Initial values
+    print("W initial values (1:m)")
+    print(w)
+   
  
     # Solve a tridiagonal linear system by Crout factorization
     l[0] = 1 + 2*lambd
@@ -50,7 +52,7 @@ def diffRegressive(l,T,alpha,m,N):
 
     for j in range(1,N+1):
         t = j*k
-        z[0] = Decimal(w[0]/l[0])
+        z[0] = w[0]/l[0]
 
         for i in range(2,m):
             z[i-1] = (w[i-1] + lambd*z[i-2])/l[i-1]
@@ -58,9 +60,10 @@ def diffRegressive(l,T,alpha,m,N):
         w[m-2] = z[m-2]
 
         for i in range(m-2,0,-1):
-            w[i-i] = z[i-1] - u[i-1]*w[i]
-            
-        W[:,j-1] = w
+            w[i-1] = z[i-1] - u[i-1]*w[i]
+
+        W[0,j-1] = f(0)  # restriction
+        W[1:,j-1] = w
             
     return W
 
@@ -77,6 +80,7 @@ def main():
     N = 100  # number of nodes
 
     W = diffRegressive(l,T,alpha,m,N)
+    print("W in another t (0:m)")
     print(W[:,49])
     
 main()
