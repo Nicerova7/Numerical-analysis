@@ -38,7 +38,7 @@ a = diag(1-2*lambda*ones(m,1)) + diag(lambda*ones(m-1,1),1);
 a = a + diag(lambda*ones(m-1,1),-1);  % define A matrix
 
 lside = l(yb+(0:n)*k); % define left side
-rside = l(yb+(0:n)*k); % define rigth side
+rside = r(yb+(0:n)*k); % define rigth side
 w(:,1) = f(xl+(1:m)*h)';
 
 for j =1:n
