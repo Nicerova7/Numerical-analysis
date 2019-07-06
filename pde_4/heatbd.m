@@ -20,7 +20,7 @@ INPUT: a,b
 
 %}
 
-% w = heatfd(D,a,b,t1,t2,M,N) 
+% w = heatbd(D,a,b,t1,t2,M,N) 
 % We are going to use heatfd(1,0,1,0,1,10,10)
 % N = 10 undiconditionally stable
 
