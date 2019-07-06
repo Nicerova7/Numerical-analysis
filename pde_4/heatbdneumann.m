@@ -22,7 +22,7 @@ INPUT: a,b
 %}
 
 % w = heatbdneumann(D,a,b,t1,t2,M,N) 
-% We are going to use heatfd(1,0,1,0,1,20,20)
+% We are going to use heatbdneumann(1,0,1,0,1,20,20)
 % N = 20 undiconditionally stable
 
 function w = heatbdneumann(D,xl,xr,yb,yt,M,N)
