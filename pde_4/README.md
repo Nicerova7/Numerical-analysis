@@ -14,6 +14,11 @@ quantum mechanics, etc.
 In case of second-order partial differential equations, we can classified them
 as parabolic, hyperbolic and elliptic.
 
+### Codes
+
+The codes in python can be found in Numerical-Analysis 7th ed. Richard L. Burden
+and codes in matlab can be found in Numerical-Analysis 2nd ed. Timothy Sauer.
+
 
 ### Goal
 
