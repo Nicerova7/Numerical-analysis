@@ -21,11 +21,13 @@ INPUT: a,b
 %}
 
 % w = heatfd(D,a,b,t1,t2,M,N) 
-% We are going to use heatfd(1,0,1,0,1,10,250)
+% We are going to use heatfd(1,0,1,0,1,10,10)
+% N = 10 undiconditionally stable
 
-function w = heatfd(D,xl,xr,yb,yt,M,N)
+function w = heatbd(D,xl,xr,yb,yt,M,N)
 
-f = @(x) sin(2*pi*x).^2;
+%modify to use
+f = @(x) sin(2*pi*x).^2; 
 r = @(t) 0*t;
 l = @(t) 0*t;
 
@@ -34,15 +36,15 @@ h = (xr-xl)/M; k = (yt-yb)/N;
 m = M-1 ; n = N;
 
 lambda = D*k/(h*h);
-a = diag(1-2*lambda*ones(m,1)) + diag(lambda*ones(m-1,1),1);
-a = a + diag(lambda*ones(m-1,1),-1);  % define A matrix
+a = diag(1+2*lambda*ones(m,1)) + diag(-lambda*ones(m-1,1),1);
+a = a + diag(-lambda*ones(m-1,1),-1);  % define A matrix
 
 lside = l(yb+(0:n)*k); % define left side
 rside = l(yb+(0:n)*k); % define rigth side
 w(:,1) = f(xl+(1:m)*h)';
 
 for j =1:n
-    w(:,j+1) = a*w(:,j)+lambda*[lside(j);zeros(m-2,1);rside(j)];
+    w(:,j+1) = a\(w(:,j)+lambda*[lside(j);zeros(m-2,1);rside(j)]); % w/a
 end
 
 w = [lside;w;rside];
@@ -51,7 +53,7 @@ t = (0:n)*k;
 
 mesh(x,t,w')
 view(60,30);
-axis([xl xr yb yt -1 1]);
+axis([xl xr yb yt -1 2]);
 
 
 
