@@ -1,4 +1,4 @@
-% Forward difference method to solve heat equation
+% Backward difference method to solve heat equation
 
 %{  
     du(x,t)/dt = D*d^2u(x,t)/dx^2
