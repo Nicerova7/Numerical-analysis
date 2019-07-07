@@ -1,7 +1,7 @@
-% Backward difference method to solve heat equation
+% Crank-Nicolson method to solve reaction-diffusion equation
 
 %{  
-    du(x,t)/dt = D*d^2u(x,t)/dx^2
+    du(x,t)/dt = D*d^2u(x,t)/dx^2 + C*u(x,t)
     
     a < x < b
     t1 < t < t2
