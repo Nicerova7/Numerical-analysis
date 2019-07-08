@@ -15,6 +15,8 @@
 
 %}
 
+% we use wavefinitedif(2,0,1,0,1,20,40)
+
 function w = wavefinitedif(c,xl,xr,yb,yt,M,N)
 
 %modify to use
@@ -36,10 +38,10 @@ lside = l(yb + (0:n)*k);
 rside = r(yb + (0:n)*k);
 
 
-gg = g(yb + (1:m)*h);
+gg = g(yb + (1:m)*h)';
 
 w(:,1) = f(xl+(1:m)*h)';
-%w(:,2) = 1/2*a*w(:,1) + k*gg + (1/2)*(lambda^2)*[lside(1);zeros(m-2,1);rside(1)];
+w(:,2) = 1/2*a*w(:,1) + k*gg + (1/2)*(lambda^2)*[lside(1);zeros(m-2,1);rside(1)];
 
 for j = 2:n
    w(:,j+1) = a*w(:,j) - w(:,j-1) + (lambda^2)*[lside(j);zeros(m-2,1);rside(j)];
@@ -51,4 +53,4 @@ t = (0:n)*k;
 
 mesh(x,t,w')
 view(60,30);
-axis([xl xr yb yt -2 2]);
+axis([xl xr yb yt -1 2]);
