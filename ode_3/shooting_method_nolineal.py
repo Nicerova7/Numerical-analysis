@@ -49,7 +49,7 @@ def fun1(x,y,z):
 
 def f(x,y,z):
     # f(x,y,y')
-    return (1/8)*(32 + 2*x**3 - y*z)  # modify here to change function
+    return -y**3 + (3*x**3 - 6*x)/(1+x**2)**3  # modify here to change function
 
 # df(x,y,y')/dy
 def dfy(x,y,z): 
@@ -68,13 +68,13 @@ def f2(u1,u2):
     
 def main():
 
-    a = 1.0
-    b = 3.0
-    alpha = 17
-    beta = 43/3
-    n = 20
+    a = 0.2
+    b = 0.8
+    alpha = 0.2/1.04
+    beta = 0.8/1.64
+    n = 21
     tol = 0.00001
-    M = 33
+    M = 100
 
     x,w = shootingNoLineal(a,b,alpha,beta,n,tol,M)
 
